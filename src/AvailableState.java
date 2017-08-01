@@ -1,9 +1,9 @@
 
 public class AvailableState implements State {
 
-	   public void doAction(SeatContext context) {
+	   public static void doAction(SeatContext context) {
 	      System.out.println("This seat is in available state");
-	      context.setState(this);	
+	      context.setState(new AvailableState());
 	   }
 
 	   public String toString(){

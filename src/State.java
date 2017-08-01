@@ -1,4 +1,6 @@
 
 public interface State {
-	public void doAction(SeatContext context);
+	public static void doAction(SeatContext context) {
+	System.out.println("\n");
+	};
 }

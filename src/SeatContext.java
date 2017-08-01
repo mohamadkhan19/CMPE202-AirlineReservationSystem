@@ -3,7 +3,8 @@ public class SeatContext {
 	   private State state;
 
 	   public SeatContext(){
-	      state = null;
+	   	AvailableState availableState = new AvailableState();
+	      state = availableState;
 	   }
 
 	   public void setState(State state){

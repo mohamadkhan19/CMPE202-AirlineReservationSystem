@@ -3,10 +3,11 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class AirlineReservationSystem {
-	
+	static SeatContext context;
 	public AirlineReservationSystem() {
 	Passenger passenger = new Passenger();
-	
+	context = new SeatContext();
+	AvailableState.doAction(context);
 	}
 	
 	
@@ -23,7 +24,7 @@ public class AirlineReservationSystem {
 	confirmation()
 	*/
 	
-	public void execute(){
+	public  static void execute(){
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter name of the passenger");
     	String name = scanner.next();
@@ -46,11 +47,11 @@ public class AirlineReservationSystem {
 		System.out.println("Enter flight number");
 		String flightnumber = scanner.next();
 		passenger.addFlightNumber(flightnumber);
-		
-		System.out.println("Choose Window seat");
-		SeatContext context = new SeatContext();
-		AvailableState.doAction(context);
+
 		while(true){
+		System.out.println("Choose Window seat");
+         String seatType = scanner.next();
+
 		if(context.getState().toString().equals("Available State")){
 			System.out.println("Window Seat selected");
 			OccupiedState occupiedState = new OccupiedState();

@@ -4,12 +4,13 @@ public class Passenger {
 	String dob;
 	String gender;
 	String flightnumber;
-	
+	String seatType;
 	public Passenger(){
 		name=null;
 		dob=null;
 		gender=null;
 		flightnumber = null;
+		seatType = null;
 		
 	}
 	
