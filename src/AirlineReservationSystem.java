@@ -3,8 +3,11 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class AirlineReservationSystem {
+	
+	public AirlineReservationSystem() {
 	Passenger passenger = new Passenger();
 	
+	}
 	
 	
 	//Confirmation confirmation = new Confirmation();
@@ -44,7 +47,23 @@ public class AirlineReservationSystem {
 		String flightnumber = scanner.next();
 		passenger.addFlightNumber(flightnumber);
 		
-		
+		System.out.println("Choose Window seat");
+		SeatContext context = new SeatContext();
+		AvailableState.doAction(context);
+		while(true){
+		if(context.getState().toString().equals("Available State")){
+			System.out.println("Window Seat selected");
+			OccupiedState occupiedState = new OccupiedState();
+			occupiedState.doAction(context);
+			break;
+		}
+		else if (context.getState().toString().equals("Occupied State")){
+			System.out.println("Window Seat occupied, please select another");
+		}
+		else{
+			System.out.println("Error");
+		}
+		}
 	}
 	
 	public static ArrayList<String> buildFlights(){

@@ -4,11 +4,12 @@ import java.util.Scanner;
 public class  Singleton{
 
    private static Singleton instance = new Singleton();
-
+   AirlineReservationSystem ars = new AirlineReservationSystem();
     public Singleton(){
        // System.out.println("Calling Private Constructor from Member Instantiation: " + this.toString());
-    	AirlineReservationSystem ars = new AirlineReservationSystem();
+    	while(true){
     	ars.execute();
+    	}
     }
 
     public static Singleton getInstance(){
